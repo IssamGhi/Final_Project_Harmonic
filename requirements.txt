@@ -1,0 +1,12 @@
+flask~=2.2.2
+flask-restful
+flask-injector
+flask-sqlalchemy
+flask-jwt-extended
+flask-swagger
+psycopg2
+gunicorn
+pytest
+jsonify~=0.5
+SQLAlchemy~=1.4.41
+injector~=0.20.1
