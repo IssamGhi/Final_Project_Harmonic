@@ -7,6 +7,6 @@ flask-swagger
 psycopg2
 gunicorn
 pytest
-jsonify~=0.5
-SQLAlchemy~=1.4.41
-injector~=0.20.1
+jsonify
+SQLAlchemy
+injector
