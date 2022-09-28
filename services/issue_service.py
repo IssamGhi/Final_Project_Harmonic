@@ -32,7 +32,7 @@ class IssueService:
         # filepath
         issue = Issue(name, desc, signature, filepath)
         return self.repository.save(issue)
+
     @marshal_with(resource_issues_fields)
     def get_all_issues(self):
         return self.repository.get_all_issues()
-

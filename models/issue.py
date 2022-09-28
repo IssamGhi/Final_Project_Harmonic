@@ -16,7 +16,7 @@ class Issue(db.Model):
         self.name = name
         self.desc = desc
         self.signature = signature
-        self.filepath =filepath
+        self.filepath = filepath
 
     def __str__(self):
         return f"Name: {self.name} desc : {self.desc}: signature : {self.signature} filename : {self.filepath}"

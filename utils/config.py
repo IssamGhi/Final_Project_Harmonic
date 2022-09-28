@@ -6,7 +6,7 @@ postgresql = {
 }
 
 postgresql_test = {
-    'host': 'localhost:5431',
+    'host': 'localhost:5432',
     'user': 'postgres',
     'password': 'zayn',
     'db': 'metelyk'
