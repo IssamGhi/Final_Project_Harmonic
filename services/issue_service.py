@@ -36,3 +36,6 @@ class IssueService:
     @marshal_with(resource_issues_fields)
     def get_all_issues(self):
         return self.repository.get_all_issues()
+
+    def get_issue_to_resolve(self):
+        return self.repository.get_all_issues()
