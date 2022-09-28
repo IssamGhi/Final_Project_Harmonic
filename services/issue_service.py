@@ -28,9 +28,9 @@ class IssueService:
         file.save(os.path.join(METELYK_REPOSITORY_PATH, file.filename))
         return filepath
 
-    def save_issue(self, name, desc, signature):
+    def save_issue(self, name, desc, signature, filepath):
         # filepath
-        issue = Issue(name, desc, signature)
+        issue = Issue(name, desc, signature, filepath)
         return self.repository.save(issue)
     @marshal_with(resource_issues_fields)
     def get_all_issues(self):
