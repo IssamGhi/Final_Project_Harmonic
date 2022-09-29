@@ -4,7 +4,6 @@ from models.user import User
 from models.asso import association
 from repositories.genric_repository import GenericRepository
 from utils.database import db
-from utils.genric_encoder import GenericEncoder
 
 
 class UserIssueRepository(GenericRepository):

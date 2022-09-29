@@ -1,12 +1,8 @@
-import fileinput
-
-from flask_restful import Resource, reqparse, marshal_with
+from flask_restful import Resource, reqparse
 from flask_injector import inject
 from flask import request
-from flask import jsonify
 
 from services.issue_service import IssueService
-from utils.genric_encoder import GenericEncoder
 
 
 class IssueResource(Resource):
@@ -26,9 +22,8 @@ class IssueResource(Resource):
     # Save_issue
     def post(self):
         filepath = self.issue_service.upload_file(request.files['filename'])
-
         data = IssueResource.parser.parse_args()
-        return self.issue_service.save_issue(data["name"], data["desc"], data["signature"],filepath).json()
+        return self.issue_service.save_issue(data["name"], data["desc"], data["signature"], filepath).json()
 
     def get(self):
         return self.issue_service.get_all_issues()

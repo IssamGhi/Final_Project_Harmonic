@@ -1,5 +1,6 @@
 from utils.database import db
 
+
 ###Classe pour interaction avec sqlalchemy
 class GenericRepository:
     def __init__(self):
@@ -16,4 +17,3 @@ class GenericRepository:
 
     def find_by_id(self, type, id):
         return db.session.query(type).get(id)
-

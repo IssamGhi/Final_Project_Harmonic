@@ -13,7 +13,6 @@ def generate_random_str():
     return name
 
 
-
 class TestRunner:
     def __init__(self):
         self.dir_name = generate_random_str()

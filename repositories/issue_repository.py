@@ -5,5 +5,5 @@ from utils.database import db
 
 class IssueRepository(GenericRepository):
 
-        def get_all_issues(self):
-            return db.session.query(Issue).all()
+    def get_all_issues(self):
+        return db.session.query(Issue).all()

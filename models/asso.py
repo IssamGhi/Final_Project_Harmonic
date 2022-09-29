@@ -1,6 +1,6 @@
 from utils.database import db
 from sqlalchemy import Table, Column, Integer, String, ForeignKey
-from sqlalchemy.orm import declarative_base, relationship
+
 
 association = db.Table(
     'user_issue',

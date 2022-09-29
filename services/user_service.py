@@ -2,7 +2,6 @@ from flask_injector import inject
 from flask_jwt_extended import create_access_token
 from models.user import User
 from repositories.user_repository import UserRepository
-from utils.genric_encoder import GenericEncoder
 
 
 class UserService:

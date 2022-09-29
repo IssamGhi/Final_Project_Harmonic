@@ -1,10 +1,8 @@
-from flask_restful import Resource, reqparse, marshal_with
+from flask_restful import Resource, reqparse
 from flask_injector import inject
-from flask import jsonify
 
 
 from services.user_service import UserService
-from utils.genric_encoder import GenericEncoder
 
 
 class UserResource(Resource):

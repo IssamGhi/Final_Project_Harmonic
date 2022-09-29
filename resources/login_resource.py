@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse, marshal_with
+from flask_restful import Resource, reqparse
 from flask_injector import inject
 
 from services.user_service import UserService

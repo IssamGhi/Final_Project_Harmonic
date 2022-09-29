@@ -1,5 +1,4 @@
 from utils.database import db
-from sqlalchemy import Table
 from models.asso import association
 
 

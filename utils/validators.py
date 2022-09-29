@@ -1,5 +1,3 @@
-from services.user_service import UserService
-
 class Validators:
 
     @staticmethod

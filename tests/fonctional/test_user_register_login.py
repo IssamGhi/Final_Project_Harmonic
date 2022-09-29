@@ -1,5 +1,6 @@
 def test_save_correct_user_should_return_200(user):
-    response = user.post('/users/register', json={'name':'ghiyati', 'surname': 'issam', 'email': 'issam@gmail.com', 'password':'123456789'})
+    response = user.post('/users/register', json={'name':'ghiyati', 'surname': 'issam',
+                                                  'email': 'issam@gmail.com', 'password':'123456789'})
     assert response.status_code == 200
     assert response.is_json == True
 
