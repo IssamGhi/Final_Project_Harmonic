@@ -9,8 +9,11 @@ from repositories.mock_repository import MockRepository
 from repositories.genric_repository import GenericRepository
 from repositories.user_repository import UserRepository
 from repositories.issue_repository import IssueRepository
+from repositories.user_issue import UserIssueRepository
+from services.user_issue_service import UserIssueService
 from services.user_service import UserService
 from services.issue_service import IssueService
+from resources.user_issue_ressource import UserIssueResource
 from resources.user_resource import UserResource
 from resources.issue_resource import IssueResource
 from resources.login_resource import LoginResource
@@ -26,9 +29,11 @@ def create_app(config):
     if config["MODE"] == "TEST":
         app.config['SQLALCHEMY_DATABASE_URI'] =postgresql_string_test
         app.config["JWT_SECRET_KEY"] = "une clé secrete pour générer le jwt en mode test"
+        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     else:
         app.config['SQLALCHEMY_DATABASE_URI'] = postgresql_string
         app.config["JWT_SECRET_KEY"] = "une clé secrete pour générer le jwt en mode prod"
+        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     ##Créer notre JWTManager pour notre application
     jwt = JWTManager(app)
@@ -43,7 +48,7 @@ def create_app(config):
 
     ##ressources user, login
     api.add_resource(UserResource, '/users/register',  endpoint='users')
-    #api.add_resource(UserResource, '/users/<int::id>',  endpoint='users')
+    api.add_resource(UserIssueResource, '/user/issue',  endpoint='user')
     api.add_resource(LoginResource, '/users/login',  endpoint='login')
     api.add_resource(IssueResource, '/issues', endpoint='issues')
 
@@ -59,6 +64,8 @@ def create_app(config):
         binder.bind(MockRepository, to=MockRepository, scope=request)
         binder.bind(IssueRepository, to=IssueRepository, scope=request)
         binder.bind(IssueService, to=IssueService, scope=request)
+        binder.bind(UserIssueService, to=UserIssueService, scope=request )
+        binder.bind(UserIssueRepository, to=UserIssueRepository, scope=request)
 
     FlaskInjector(app=app, modules=[flask_injector_configuration])
     return app
